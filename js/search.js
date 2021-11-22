@@ -44,7 +44,6 @@ const search = function () {
 
 
     searchBtn.addEventListener('click', () => {
-        console.log(input.value)
         getData(input.value)
     })
 }

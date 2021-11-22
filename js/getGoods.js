@@ -1,5 +1,6 @@
 const getGoods = () => {
     const links = document.querySelectorAll('.navigation-link')
+    const more = document.querySelector('.more')
 
     const renderGoods = (goods) => {
         const goodsContainer = document.querySelector('.long-goods-list')
@@ -16,7 +17,7 @@ const getGoods = () => {
                     <img src="db/${good.img}" alt="${good.name}" class="goods-image">
                     <h3 class="goods-title">${good.name}</h3>      
                     <p class="goods-description">${good.description}</p>           
-                    <button class="button goods-card-btn add-to-cart" data-id="${good.id}
+                    <button class="button goods-card-btn add-to-cart" data-id="${good.id}"
                         <span class="button-price">$${good.price}</span>
                     </button>
                 </div>
@@ -52,6 +53,12 @@ const getGoods = () => {
 
     if (localStorage.getItem('goods') && window.location.pathname === '/goods.html')
         renderGoods(JSON.parse(localStorage.getItem('goods')))
+
+    if (more)
+        more.addEventListener('click', event => {
+            event.preventDefault();
+            getData();
+        })
 }
 
 getGoods()
